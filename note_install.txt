@@ -1,1 +1,3 @@
+nvm use 16
 npm init
+npm install express
