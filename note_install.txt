@@ -3,3 +3,6 @@ npm init
 npm install express
 npm install nodemon
 nodemon app.js => http://localhost:3050/
+npm install socket.io
+nodemon app.js
+=> http://localhost:3050/socket.io/socket.io.js
