@@ -18,6 +18,9 @@ io.on('connection', (socket) => {
     'namess' : 'namess 123',
   });
 
+  socket.on('CLIENT_SEND_MESSAGE', (msg) => {
+    console.log('message: ' + msg);
+  });
 
   socket.on('disconnect', () => {
     console.log('user disconnected - ' + socket.id);

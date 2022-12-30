@@ -22,7 +22,7 @@
     <h3 id="content2"></h3>
     <ul id="messages"></ul>
     <form id="form" action="">
-      <input id="input" autocomplete="off" /><button>Send</button>
+      <input id="mio" autocomplete="off" /><button>Send</button>
     </form>
   </body>
 
@@ -41,6 +41,13 @@
         $('h3#content2').html(data.namess);
 
       });
+
+      $('form').submit(function(){
+        socket.emit('CLIENT_SEND_MESSAGE', $('#mio').val());
+
+        $('#mio').val('');
+        return false;
+      })
 
     })
   </script>
