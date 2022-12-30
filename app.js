@@ -12,6 +12,13 @@ app.get('/', (req, res) => {
 io.on('connection', (socket) => {
   console.log('a user connected - ' + socket.id);
 
+  // socket.emit('SERVER_SEND_CLIENT_SOCKET_ID', socket.id);
+  socket.emit('SERVER_SEND_CLIENT_SOCKET_ID', {
+    'socketId' : socket.id,
+    'namess' : 'namess 123',
+  });
+
+
   socket.on('disconnect', () => {
     console.log('user disconnected - ' + socket.id);
   });

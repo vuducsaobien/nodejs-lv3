@@ -18,14 +18,30 @@
 
 
   <body>
+    <h3 id="content1"></h3>
+    <h3 id="content2"></h3>
     <ul id="messages"></ul>
     <form id="form" action="">
       <input id="input" autocomplete="off" /><button>Send</button>
     </form>
   </body>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
   <script>
-    var socket = io();
+
+    $(function () {
+      var socket = io();
+
+      socket.on('SERVER_SEND_CLIENT_SOCKET_ID', (data) => {
+        console.log('cient data', data);
+
+        // $('h3#content1').html(data);
+        $('h3#content1').html(data.socketId);
+        $('h3#content2').html(data.namess);
+
+      });
+
+    })
   </script>
 </html>
