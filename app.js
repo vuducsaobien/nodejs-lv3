@@ -18,8 +18,14 @@ io.on('connection', (socket) => {
     'namess' : 'namess 123',
   });
 
+  // socket.on('CLIENT_SEND_MESSAGE', (msg) => {
+  //   socket.emit('SERVER_RETURN_MESSAGE', {
+  //     'str' : msg.toUpperCase()
+  //   });
+  // });
+
   socket.on('CLIENT_SEND_MESSAGE', (msg) => {
-    socket.emit('SERVER_RETURN_MESSAGE', {
+    io.emit('SERVER_RETURN_MESSAGE', {
       'str' : msg.toUpperCase()
     });
   });
