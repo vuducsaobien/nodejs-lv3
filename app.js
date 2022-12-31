@@ -24,8 +24,14 @@ io.on('connection', (socket) => {
   //   });
   // });
 
+  // socket.on('CLIENT_SEND_MESSAGE', (msg) => {
+  //   io.emit('SERVER_RETURN_MESSAGE', {
+  //     'str' : msg.toUpperCase()
+  //   });
+  // });
+
   socket.on('CLIENT_SEND_MESSAGE', (msg) => {
-    io.emit('SERVER_RETURN_MESSAGE', {
+    socket.broadcast.emit('SERVER_RETURN_MESSAGE', {
       'str' : msg.toUpperCase()
     });
   });
