@@ -42,6 +42,10 @@
 
       });
 
+      socket.on('SERVER_RETURN_MESSAGE', (data) => {
+        console.log('SERVER_RETURN_MESSAGE data', data);
+      });
+
       $('form').submit(function(){
         socket.emit('CLIENT_SEND_MESSAGE', $('#mio').val());
 

@@ -19,7 +19,9 @@ io.on('connection', (socket) => {
   });
 
   socket.on('CLIENT_SEND_MESSAGE', (msg) => {
-    console.log('message: ' + msg);
+    socket.emit('SERVER_RETURN_MESSAGE', {
+      'str' : msg.toUpperCase()
+    });
   });
 
   socket.on('disconnect', () => {
