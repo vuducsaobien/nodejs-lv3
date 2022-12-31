@@ -42,8 +42,12 @@
 
       });
 
+      // socket.on('SERVER_RETURN_MESSAGE', (data) => {
+      //   console.log('SERVER_RETURN_MESSAGE data', data);
+      // });
+
       socket.on('SERVER_RETURN_MESSAGE', (data) => {
-        console.log('SERVER_RETURN_MESSAGE data', data);
+        $('#messages').append($('<li>').text(data.str));
       });
 
       $('form').submit(function(){
